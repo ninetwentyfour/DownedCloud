@@ -4,6 +4,8 @@ require 'net/http'
 require 'open-uri'
 require 'taglib'
 require 'mustache/sinatra'
+require "id3"
+#require 'id3'
 
 class Download < Sinatra::Base
   register Mustache::Sinatra
@@ -52,12 +54,42 @@ class Download < Sinatra::Base
           file << open(dl).read #save the file from amazon to computer
         end
         #open the file and add id3 tags
-        file = TagLib::MPEG::File.new(filename)
-        tag = file.id3v2_tag
-        tag.artist = artist = song_info["user"]["username"] #set the song artist
-        tag.title = song_info["title"] #set the song title
-        file.save
-        file.close
+        if ! ID3::has_id3v2_tag?( filename )  
+           # myfile = AudioFile.open( filename ) # do we need a new here?
+           # 
+           # myfile.id3v2tag["COMMENT"] = "Tilo's MP3 collection" # set the comment
+           # 
+           # 
+           # myfile.write # writes to the same filename, overwriting the old file
+           # myfile.close
+           
+           
+           
+           myfile = AudioFile.open( filename ) # do we need a new here?
+
+           newtag = ID3v2tag("2.3.0") # create a new,empty v2 tag
+           newtag["TITLE"] = song_info["title"] #set the song title
+           newtag["ARTIST"] = song_info["user"]["username"] #set the song artist
+
+           newtag.options["PADDINGSIZE"] = 0
+
+           myfile.id3v2tag = newtag # assoziate the new tag with the AudioFile..
+                                            # NOTE: we should CHECK when assigning a tag,
+                                            # that the version number matches!
+
+           myfile.write(filename) # if we overwrite, we should save the old tag in "filename.oldtag"
+           myfile.close
+        end
+        
+        
+        
+        
+        # file = TagLib::MPEG::File.new(filename)
+        # tag = file.id3v2_tag
+        # tag.artist = artist = song_info["user"]["username"] #set the song artist
+        # tag.title = song_info["title"] #set the song title
+        # file.save
+        # file.close
         send_file(filename, :disposition => 'attachment', :filename => File.basename(filename))
       end
     else

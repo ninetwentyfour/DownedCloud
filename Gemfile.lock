@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/dutchhome/ID3.git
+  revision: b99af36fdb152cf457ff1498fc73abf1a37a18b7
+  specs:
+    id3 (0.5.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -12,15 +18,14 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
-    taglib-ruby (0.3.1)
     tilt (1.3.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  id3!
   json
   mustache
   shotgun
   sinatra
-  taglib-ruby
