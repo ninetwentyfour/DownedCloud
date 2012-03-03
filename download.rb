@@ -71,4 +71,15 @@ class Download < Sinatra::Base
     @notification = '<div class="alert alert-danger"><strong>Sorry</strong> This song is not available for download.</div>'
     mustache :index
   end
+  
+  # Render not_found.hmustace
+  not_found do
+    mustache :not_found
+  end
+
+  # Render server_error.mustache
+  error do
+    @e = request.env['sinatra_error']
+    mustache :server_error
+  end
 end
