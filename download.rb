@@ -54,7 +54,7 @@ class Download < Sinatra::Base
           file << open(dl).read #save the file from amazon to computer
         end
         #open the file and add id3 tags
-        if ! ID3::has_id3v2_tag?( filename )  
+        #if ! ID3::has_id3v2_tag?( filename )  
            # myfile = AudioFile.open( filename ) # do we need a new here?
            # 
            # myfile.id3v2tag["COMMENT"] = "Tilo's MP3 collection" # set the comment
@@ -79,7 +79,7 @@ class Download < Sinatra::Base
 
            myfile.write(filename) # if we overwrite, we should save the old tag in "filename.oldtag"
            myfile.close
-        end
+        #end
         
         
         
