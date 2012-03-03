@@ -3,4 +3,10 @@ DownedCloud
 
 Source for [http://downedcloud.herokuapp.com/](http://downedcloud.herokuapp.com/)
 
-Simple Sinatra app. `bundle install` `shotgun config.ru`
+Simple Sinatra app. Enter a [SoundCloud](http://soundcloud.com) URL and get back an mp3.
+
+- `bundle install` 
+
+- Set ENV['SOUNDCLOUD_API'] somewhere. 
+
+- `shotgun config.ru`

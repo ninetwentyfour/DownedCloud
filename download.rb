@@ -63,13 +63,12 @@ class Download < Sinatra::Base
       end
     else
       redirect to('/no-download')
-      redirect '/no-download', :notice => 'redirect with 301 code'
     end
   
   end
   
   get '/no-download' do
-    @notification = '<div class="alert alert-danger"><strong>Alert</strong> This song is not available for download.</div>'
+    @notification = '<div class="alert alert-danger"><strong>Sorry</strong> This song is not available for download.</div>'
     mustache :index
   end
 end
