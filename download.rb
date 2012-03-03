@@ -4,6 +4,9 @@ require 'net/http'
 require 'open-uri'
 require 'mustache/sinatra'
 require "mp3info"
+configure :production do
+  require 'newrelic_rpm'
+end
 
 class Download < Sinatra::Base
   register Mustache::Sinatra
