@@ -2,7 +2,6 @@ require 'sinatra'
 require 'json'
 require 'net/http'
 require 'open-uri'
-#require 'taglib'
 require 'mustache/sinatra'
 require "mp3info"
 
@@ -57,16 +56,6 @@ class Download < Sinatra::Base
           mp3.tag.title = song_info["title"] #set the song title
           mp3.tag.artist = song_info["user"]["username"] #set the song artist
         end
-        
-        
-        
-        
-        # file = TagLib::MPEG::File.new(filename)
-        # tag = file.id3v2_tag
-        # tag.artist = artist = song_info["user"]["username"] #set the song artist
-        # tag.title = song_info["title"] #set the song title
-        # file.save
-        # file.close
         send_file(filename, :disposition => 'attachment', :filename => File.basename(filename))
       end
     else

@@ -1,46 +1,43 @@
 <!doctype html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/i/378 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>DownedCloud</title>
-  <meta name="description" content="">
+	<title>DownedCloud</title>
+	<meta name="description" content="">
 	<meta name="Author" content="Travis Berry, contact@travisberry.com">
-  <!-- Mobile viewport optimized: h5bp.com/viewport -->
-  <meta name="viewport" content="width=device-width">
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 	<link rel="shortcut icon" type="image/x-icon" href="http://downcloud.s3.amazonaws.com/favicon.ico">
-  <link rel="stylesheet" href="http://downcloud.s3.amazonaws.com/twitter.css">
-<style>
-	.hero-unit{
-		margin-top:60px;
-	}
-	.input-xlarge{
-		width:100% !important;
-		margin:20px 0px 20px 0px;
-	}
-</style>
+	<link rel="stylesheet" href="http://downcloud.s3.amazonaws.com/twitter.css">
+	<style>
+		.hero-unit{
+			margin-top:60px;
+		}
+		.input-xlarge{
+			width:100% !important;
+			margin:20px 0px 20px 0px;
+		}
+	</style>
 </head>
 <body>
- <div class="navbar navbar-fixed-top">
-   <div class="navbar-inner">
-     <div class="container">
-       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </a>
-       <a class="brand" href="../"></a>
-       <div class="nav-collapse">
-
-       </div>
-     </div>
-   </div>
- </div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="../"></a>
+				<div class="nav-collapse">
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="hero-unit clearfix">
@@ -61,35 +58,32 @@
 		</footer>
 	</div>
 
-  <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
+	<!-- JavaScript at the bottom for fast page loading -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>
 	$("#download-button").click(function() {
 		if($("#soundcloud-url").val() == ""){
 			alert("Please enter a SoundCloud URL.");
 		}else{
 			if ($('.alert-danger').length) { // implies *not* zero
-		    $('.alert-danger').attr('style', 'display:none;');
-		  }
+				$('.alert-danger').attr('style', 'display:none;');
+			}
 			if ($('.alert-success').length) { // implies *not* zero
-		    $('.alert-success').attr('style', 'display:none;');
-		  }
+				$('.alert-success').attr('style', 'display:none;');
+			}
 			$('.alert-success').attr('style', 'display:block;');
 			url = encodeURIComponent($("#soundcloud-url").val())
 			window.location = "/download/"+url
 		}
 	});
 	</script>
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-       mathiasbynens.be/notes/async-analytics-snippet -->
-  <script>
-    var _gaq=[['_setAccount','UA-29692725-1'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+	<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+		mathiasbynens.be/notes/async-analytics-snippet -->
+	<script>
+		var _gaq=[['_setAccount','UA-29692725-1'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
 </body>
 </html>
