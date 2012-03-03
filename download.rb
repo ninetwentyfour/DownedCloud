@@ -2,7 +2,7 @@ require 'sinatra'
 require 'json'
 require 'net/http'
 require 'open-uri'
-require 'taglib'
+#require 'taglib'
 require 'mustache/sinatra'
 require "id3"
 #require 'id3'
