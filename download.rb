@@ -68,7 +68,7 @@ class Download < Sinatra::Base
   end
   
   get '/no-download' do
-    @notification = '<div class="alert alert-danger"><strong>Sorry</strong> This song is not available for download.</div>'
+    @notification = '<div class="alert alert-danger"><strong>Sorry</strong> This song is not available for download. <a href="http://soundcloud.com/tracks/search?q%5Btype%5D=&q%5Bduration%5D=&q%5Bdownloadable%5D=true&advanced=1" target="blank">Need help finding songs?</a></div>'
     mustache :index
   end
   
