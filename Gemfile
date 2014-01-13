@@ -1,4 +1,5 @@
 source :rubygems
+ruby "2.1.0"
 
 gem "mustache"
 gem "sinatra"
